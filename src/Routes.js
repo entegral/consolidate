@@ -12,6 +12,7 @@ const register = (event) => {
   
   assert.strictEqual(typeof event.body, 'object', 'expected body to be an object');
   assert.strictEqual(typeof event.body.email, 'string', 'expected body.email to be a string');
+  assert.strictEqual(typeof event.body.group, 'string', 'expected body.group to be a string');
   assert.strictEqual(typeof event.body.password, 'string', 'expected body.password to be a string');
   assert.strictEqual(typeof event.body.firstName, 'string', 'expected body.firstName to be a string');
   assert.strictEqual(typeof event.body.lastName, 'string', 'expected body.lastName to be a string');

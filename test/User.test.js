@@ -36,8 +36,16 @@ describe('Routes', () => {
         );
       });
 
-      it('should throw an error if password is not a string', () => {
+      it('should throw an error if group is not a string', () => {
         event.body.email = 'email';
+        assert.throws(
+          router.register.bind(null, event),
+          /expected body.group to be a string/
+        );
+      });
+
+      it('should throw an error if password is not a string', () => {
+        event.body.group = 'group';
         assert.throws(
           router.register.bind(null, event),
           /expected body.password to be a string/
@@ -67,6 +75,13 @@ describe('Routes', () => {
         );
       });
     });
+
+    describe('behavior', () => {
+      
+      it('should validate no other user exists with that email');
+      it('should validate the requested group exists');
+    });
+    
   });
   
 });
