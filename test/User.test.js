@@ -78,10 +78,11 @@ describe('Routes', () => {
 
     describe('behavior', () => {
       
-      it('should validate no other user exists with that email');
       it('should validate the requested group exists');
+      it('should return an error if that user already exists in the group');
+      it('should return an error if the password is not the group\'s password');
+      it('should save the user if the group exists, password matches, and no other user with that name is registered yet');
     });
-    
   });
   
 });
