@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "eatin-executor",
+    "name": "eatin",
+    "region": "us-west-2"
+  },
+  "api": {
+    "id": "k2xf4phjlj",
+    "module": "index"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "eatin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mocha": "mocha --recursive",
+    "test": "nyc --reporter=text --check-coverage npm run mocha",
+    "coverage": "nyc --reporter=text --reporter=html npm run mocha",
+    "create": "claudia create --api-module index --region us-west-2 --profile brucer",
+    "deploy": "claudia update --profile brucer"
+  },
+  "author": "Robert Bruce",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.585.0",
+    "claudia-api-builder": "^4.1.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
+    "rewire": "^4.0.1",
+    "sinon": "^7.5.0"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "nyc": {
+    "statements": 0,
+    "branches": 0,
+    "functions": 0,
+    "lines": 0
+  }
+}
