@@ -4,8 +4,8 @@ const AWS = require('aws-sdk');
 AWS.config.update({
   region: 'us-west-2'
 });
-global.docClient = new AWS.DynamoDB.DocumentClient();
-process.env.TABLE = 'pick-me-up';
+const docClient = new AWS.DynamoDB.DocumentClient();
+process.env.TABLE = 'consolidate';
 process.env.REGION = 'us-west-2';
 
 const { 
@@ -14,7 +14,12 @@ const {
 
 api.post(
   '/register',
-  register
+  (event) => { return register.bind(null, event, docClient); },
+  {
+    apiKeyRequired: true,
+    error: { code: 500 },
+    success: { contentType: 'application/json' }
+  }
 );
 
 module.exports = api;
